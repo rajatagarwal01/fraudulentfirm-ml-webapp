@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FRAUD FIRM SCORE CALCULATOR</title>
+
+<meta charset="UTF-8">
+ 
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'  type='text/css'>
+<link  rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arimo'  type='text/css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Hind:300'  type='text/css'>
+<link  rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' type='text/css'>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+  <link rel="stylesheet" href="{{url_for('static' , filename = 'css/materialize.css')}}" type="text/css"  media="screen,projection"/>
+  <link rel="stylesheet" type = "text/css" href="{{url_for('static' , filename = 'css/style.css')}}"   media="screen,projection"/>
+
+
+
+</head>
+
+
+<body background="{{ url_for('static', filename='img/yyy.png') }}">
+
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">FIRMCHECK</a>
+      <ul class="right hide-on-med-and-down">
+        
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+<section  background="{{ url_for('static', filename='img/background.jpg') }}">
+  <div id="index-banner" class="parallax-container"> 
+    <div class="section no-pad-bot">
+      <div style="background-image : url_for('static', filename='img/background.jpg') " class="container">
+        <br><br>
+        <h2 class="header center teal-text text-lighten-2"> SUSPICIOUS FIRM RISK SCORE PREDICTOR</h2>
+        <div class="row center">
+          <h4 class="header col s12 light">Enter the feature values to get the score</h4>
+        </div>
+        <div class="row center">
+        </div>
+        <div class="row center">
+          
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div style="{{ url_for('static', filename='img/background1.jpg') }}" class="parallax"></div>
+  </div>
+
+</section  background="{{ url_for('static', filename='img/background1.jpg') }}">
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+
+	
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Sector_score" placeholder="Sector score" required="required" />
+        <input type="text" name="PARA_A" placeholder="Parameter A" required="required" />
+		<input type="text" name="PARA_B" placeholder="Parameter B" required="required" />
+        <input type="text" name="TOTAL" placeholder="Total" required="required" />
+	    <input type="text" name="Money_Value" placeholder="Money Value" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+        
+      </div>
+
+    </div>
+  </div>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
